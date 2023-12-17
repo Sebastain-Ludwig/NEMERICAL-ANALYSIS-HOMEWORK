@@ -108,6 +108,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 OUTPUT main.xdv
+INPUT ./main_01.eps
+INPUT ./main_01.eps
+INPUT main_01.eps
+INPUT main_01.eps
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
@@ -118,10 +122,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT ./main_01.eps
-INPUT ./main_01.eps
-INPUT main_01.eps
-INPUT main_01.eps
 INPUT ./main_02.eps
 INPUT ./main_02.eps
 INPUT main_02.eps
@@ -142,4 +142,8 @@ INPUT ./main_06.eps
 INPUT ./main_06.eps
 INPUT main_06.eps
 INPUT main_06.eps
+INPUT ./main_07.eps
+INPUT ./main_07.eps
+INPUT main_07.eps
+INPUT main_07.eps
 INPUT main.aux

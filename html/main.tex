@@ -27,6 +27,7 @@
    \item PROBLEM 3-2:SOLVE NONLINEAR EQUATION
    \item FUNCTION(A)
    \item FUNCTION(B)
+   \item PROBLEM 3-6:FIND ROOT ON A SPECIAL SPAN AND PROSIMATE ERROR
    \item PLOT
    \item FIND ROOTS
    \item GET UNIQUE ROOT FROM THE LIST LIST-\ensuremath{>}SET
@@ -35,6 +36,9 @@
    \item PROBLEM 4-6 PROXIMATTION AND RUNGE PHOMENON
    \item PROBLEM 5-3 NUMERICAL INTEGRATION
    \item PROBLEM 6-1 SOLAVE DIFFERETIAL EQUATION
+   \item PROBLEM 12
+   \item PROBLEM 17
+   \item PROBLEM 15
 \end{itemize}
 
 
@@ -47,7 +51,7 @@ the value 'forward' is the first section of the problem the 'backword' is the se
 $$\frac{1}{2}\left(\frac{3}{2}-\frac{1}{n}-\frac{1}{n+1}\right)$$
 \end{par} \vspace{1em}
 \begin{par}
-'term' is the term of the series $$\frac{1}{n^2-1}$\$ this section use function nnl\_serial1 to calculate,single function(nnl\_serial1.m)
+'term' is the term of the series $$\frac{1}{n^2-1}$$ this section use function nnl\_serial1 to calculate,single function(nnl\_serial1.m)
 \end{par} \vspace{1em}
 \begin{verbatim}
 term1_1=@(n)1/(n^2-1);
@@ -91,7 +95,7 @@ disp(["ANSWER 1-3:========================================",ans_1_3]);
 \subsection*{PROBLEM 2-1:LU DECOMPOSITION SOLVE A LINEAR EQUATION Ax=b}
 
 \begin{par}
-LU decomposition $$A=LU$\$ A:'A\_mat\_2\_1' L:l\_2\_1 U;u\_2\_1 this section use lude(lude.m)
+LU decomposition $$A=LU$$ A:'A\_mat\_2\_1' L:l\_2\_1 U;u\_2\_1 this section use lude(lude.m)
 \end{par} \vspace{1em}
 \begin{verbatim}
 A_mat_2_1=[31,-13,0,0,0,-10,0,0,0;-13,35,-9,0,-11,0,0,0,0;0,-9,31,-10,...
@@ -182,7 +186,7 @@ disp([l_2_1,u_2_1]);
 \subsection*{PROBLEM 2-2:CHOLESKY DECOMPOSITION SOLVE LINEAR EQUATION Ax=b}
 
 \begin{par}
-cholesky decomposition solve Ax=b $$LL^Ty=b$\$ this section use nnl\_cholesky(nnl\_cholesky.m)
+cholesky decomposition solve Ax=b $$LL^Ty=b$$ this section use nnl\_cholesky(nnl\_cholesky.m)
 \end{par} \vspace{1em}
 \begin{verbatim}
 A_mat_2_2=[7,1,-5,1;1,9,2,7;-5,2,7,-1;1,7,-1,9];
@@ -207,7 +211,7 @@ disp(["ANSWER 2-2:=======================================",ans_2_2])
 \subsection*{PROBLEM 2-4:QR DECOMPOSITION}
 
 \begin{par}
-QR decomposition $$A=QR$\$ this section use nnl\_qr(nnl\_qr.m)
+QR decomposition $$A=QR$$ this section use nnl\_qr(nnl\_qr.m)
 \end{par} \vspace{1em}
 \begin{verbatim}
 A_mat_2_4=[1 1 0 0;-1 3 -1/2 1/2;-2 2 3/2 1/2;-2 2 -1/2 5/2];
@@ -274,7 +278,7 @@ disp("ANSWER 2-7:=========================================");
 
 
 
-\subsection*{FUNCTION(A)}
+\subsubsection*{FUNCTION(A)}
 
 \begin{verbatim}
 f_3_2_a=@(x)x*cos(x)+2;
@@ -284,15 +288,8 @@ disp(["ANSWER 3-2(a):========================================"]);
 disp(root_3_2_a)
 \end{verbatim}
 
-        \color{lightgray} \begin{verbatim}    "THE WORST SITUATION ITER STEP:"    "13"    "SIMULATION NUMBER:"    "14"
 
-ANSWER 3-2(a):========================================
-   2.499023437500000
-
-\end{verbatim} \color{black}
-    
-
-\subsection*{FUNCTION(B)}
+\subsubsection*{FUNCTION(B)}
 
 \begin{verbatim}
 var_0_num=100;
@@ -317,9 +314,21 @@ for i=1:var_0_num
     step_3_2=[step_3_2,root_3_2_step{i}(1)];
 end
 scatter(var_0_3_2_b,step_3_2);
-close
+\end{verbatim}
 
-%%PROBLEM 3-6:FIND ROOT ON A SPECIAL SPAN AND PROSIMATE ERROR
+        \color{lightgray} \begin{verbatim}    "THE WORST SITUATION ITER STEP:"    "13"    "SIMULATION NUMBER:"    "14"
+
+ANSWER 3-2(a):========================================
+   2.499023437500000
+
+\end{verbatim} \color{black}
+    
+\includegraphics [width=4in]{main_01.eps}
+
+
+\subsection*{PROBLEM 3-6:FIND ROOT ON A SPECIAL SPAN AND PROSIMATE ERROR}
+
+\begin{verbatim}
 f_3_6=@(x)hornercal([-4,16,35,-69,-102,45,54],x);
 fd_3_6=@(x)hornercal([16,35*2,-69*3,-102*4,45*5,54*6],x);
 
@@ -328,14 +337,14 @@ y_3_6=arrayfun(f_3_6,x_3_6);
 \end{verbatim}
 
 
-\subsection*{PLOT}
+\subsubsection*{PLOT}
 
 \begin{verbatim}
 plot(x_3_6,y_3_6);
 \end{verbatim}
 
 
-\subsection*{FIND ROOTS}
+\subsubsection*{FIND ROOTS}
 
 \begin{verbatim}
 var_0_num=100;
@@ -368,7 +377,7 @@ end
 root_set=uniquetol(root_set,1e-4);
 \end{verbatim}
 
-\includegraphics [width=4in]{main_01.eps}
+\includegraphics [width=4in]{main_02.eps}
 
 
 \subsection*{PROBLEM 4-1 LAGRANGE INTERPLATION}
@@ -381,12 +390,12 @@ inter_4_1=cellfun(@nnl_lginter,{[-5,5],[-5,5],[-5,5]},{6,11,21},...
     {f_4_1,f_4_1,f_4_1},{points_4_1,points_4_1,points_4_1},...
     'Uniformoutput',false);
 for i=1:length(interval_4_1)
-    plot(points_4_1,inter_4_1{i});
     hold on;
+    plot(points_4_1,inter_4_1{i});
 end
 \end{verbatim}
 
-\includegraphics [width=4in]{main_02.eps}
+\includegraphics [width=4in]{main_03.eps}
 
 
 \subsection*{PROBLEM 4-2 HERMITE INTERPLATION}
@@ -397,12 +406,12 @@ y_4_2=f_4_2_vec(points_4_1);
 inter_4_2=cellfun(@spline,{points_4_1,points_4_1,points_4_1},...
     {y_4_2,y_4_2,y_4_2},'Uniformoutput',false);
 for i=1:length(interval_4_1)
-    plot(points_4_1,ppval(inter_4_2{i},points_4_1));
     hold on;
+    plot(points_4_1,ppval(inter_4_2{i},points_4_1));
 end
 \end{verbatim}
 
-\includegraphics [width=4in]{main_03.eps}
+\includegraphics [width=4in]{main_04.eps}
 
 
 \subsection*{PROBLEM 4-6 PROXIMATTION AND RUNGE PHOMENON}
@@ -415,7 +424,7 @@ close
 plot(linspace(1994,2003,100),y_4_6);
 hold on
 scatter(linspace(1994,2003,10),[67.052,68.008,69.803,72.024,73.400,...
-    72.063,74.669,74.487,74.065,76.777])
+    72.063,74.669,74.487,74.065,76.777]);
 \end{verbatim}
 
         \color{lightgray} \begin{verbatim}
@@ -559,7 +568,7 @@ y_4_6 =
 
 \end{verbatim} \color{black}
     
-\includegraphics [width=4in]{main_04.eps}
+\includegraphics [width=4in]{main_05.eps}
 
 
 \subsection*{PROBLEM 5-3 NUMERICAL INTEGRATION}
@@ -587,7 +596,7 @@ hold on
 scatter(cell2mat(points_n_5_3),simpson_5_3_e);
 \end{verbatim}
 
-\includegraphics [width=4in]{main_05.eps}
+\includegraphics [width=4in]{main_06.eps}
 
 
 \subsection*{PROBLEM 6-1 SOLAVE DIFFERETIAL EQUATION}
@@ -604,18 +613,18 @@ adv_j=cellfun(@nnl_adveuler,{0,0,0},step_6_1,{[1,2],[1,2],[1,2]},...
     {f_6_1,f_6_1,f_6_1},'Uniformoutput',false);
 
 for i=1:length(rk_j)
-    plot(linspace(1,2,length(rk_j{i})),rk_j{i});
     hold on
+    plot(linspace(1,2,length(rk_j{i})),rk_j{i});
 end
 
 for i=1:length(clse_j)
-    plot(linspace(1,2,length(clse_j{i})),clse_j{i});
     hold on
+    plot(linspace(1,2,length(clse_j{i})),clse_j{i});
 end
 
 for i=1:length(rk_j)
-    plot(linspace(1,2,length(adv_j{i})),adv_j{i});
     hold on
+    plot(linspace(1,2,length(adv_j{i})),adv_j{i});
 end
 
 syms x u(x);
@@ -626,8 +635,114 @@ clear x u;
 legend;
 \end{verbatim}
 
-\includegraphics [width=4in]{main_06.eps}
+\includegraphics [width=4in]{main_07.eps}
 
+
+\subsection*{PROBLEM 12}
+
+\begin{verbatim}
+f_12_1=@(x)x^3-x^2-x-1;
+f_12_d_1=@(x)2*x^2-2*x;
+ans_12_1=nnl_newton_nle(f_12_1,f_12_d_1,2,1e-5);
+
+f_12_2=@(x)x-exp(-x);
+f_12_d_2=@(x)1+exp(-x);
+disp("ANSVWER 12:========================================================");
+ans_12_2=nnl_newton_nle(f_12_2,f_12_d_2,0.6,1e-5);
+disp(ans_12_2);
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ANSVWER 12:========================================================
+   0.567143283642655
+
+\end{verbatim} \color{black}
+    
+
+\subsection*{PROBLEM 17}
+
+\begin{verbatim}
+f_17=@(x)cos(x)*sinh(x)-1;
+f_17_d=@(x)cos(x)*cosh(x)-sin(x)*sinh(x);
+var0_17=linspace(1,3,10);
+var0_17=[var0_17,linspace(7,18,9)];
+ans_17=[];
+for i=var0_17
+    ans_17=[ans_17,nnl_newton_nle(f_17,f_17_d,i,1e-2)];
+end
+ans_17_set=uniquetol(ans_17,1e-2);
+ans_17_5=ans_17_set(find(ans_17_set>0));
+disp("ANSVWER 17:========================================================");
+disp(ans_17_5(1:5));
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ANSVWER 17:========================================================
+  列 1 至 3
+
+   4.730045609740438   7.853204628903144  10.995607838001845
+
+  列 4 至 5
+
+  14.137165491257464  17.278759657420252
+
+\end{verbatim} \color{black}
+    
+
+\subsection*{PROBLEM 15}
+
+\begin{verbatim}
+f_15_int=@(x)exp(-x^2/2);
+vark_15=linspace(1,30,30)*0.1;
+y_15=[];
+for vark=vark_15
+    y_15=[y_15,1/2+1/sqrt(2*pi)*nnl_mpsimpsonint([0,vark],100,f_15_int)];
+end
+disp("ANSVWER 15:========================================================");
+disp(y_15);
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ANSVWER 15:========================================================
+  列 1 至 3
+
+   0.539960486746670   0.579523048301627   0.618301666314080
+
+  列 4 至 6
+
+   0.655933544316851   0.692089280213360   0.726481423885906
+
+  列 7 至 9
+
+   0.758871056531101   0.789072158339280   0.816953671292690
+
+  列 10 至 12
+
+   0.842439302823644   0.865505243218557   0.886176076034399
+
+  列 13 至 15
+
+   0.904519239895072   0.920638448201127   0.934666489821426
+
+  列 16 至 18
+
+   0.946757820788912   0.957081318710982   0.965813513954795
+
+  列 19 至 21
+
+   0.973132541470304   0.979212981286240   0.984221680647147
+
+  列 22 至 24
+
+   0.988314581810832   0.991634520694350   0.994309915344854
+
+  列 25 至 27
+
+   0.996454230657040   0.998166086606921   0.999529870242112
+
+  列 28 至 30
+
+   1.000616714771711   1.001485719955381   1.002185304125893
+
+\end{verbatim} \color{black}
+    
 
 
 \end{document}

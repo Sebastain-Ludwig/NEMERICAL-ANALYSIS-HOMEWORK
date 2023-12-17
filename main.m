@@ -76,14 +76,14 @@ solution_vec_2_7=cellfun(@nnl_jacobi_le,A_mat_2_7,b_mat_2_7,...
 disp("ANSWER 2-7:=========================================");
 
 %% PROBLEM 3-2:SOLVE NONLINEAR EQUATION
-%% FUNCTION(A)
+%%% FUNCTION(A)
 f_3_2_a=@(x)x*cos(x)+2;
 
 root_3_2_a=nnl_dfr(-4,4,f_3_2_a,1e-3);
 disp(["ANSWER 3-2(a):========================================"]);
 disp(root_3_2_a)
 
-%% FUNCTION(B)
+%%% FUNCTION(B)
 var_0_num=100;
 
 f_3_2_b=cell(1,var_0_num);
@@ -106,9 +106,8 @@ for i=1:var_0_num
     step_3_2=[step_3_2,root_3_2_step{i}(1)];
 end
 scatter(var_0_3_2_b,step_3_2);
-close
 
-%%PROBLEM 3-6:FIND ROOT ON A SPECIAL SPAN AND PROSIMATE ERROR
+%% PROBLEM 3-6:FIND ROOT ON A SPECIAL SPAN AND PROSIMATE ERROR
 f_3_6=@(x)hornercal([-4,16,35,-69,-102,45,54],x);
 fd_3_6=@(x)hornercal([16,35*2,-69*3,-102*4,45*5,54*6],x);
 
@@ -152,8 +151,8 @@ inter_4_1=cellfun(@nnl_lginter,{[-5,5],[-5,5],[-5,5]},{6,11,21},...
     {f_4_1,f_4_1,f_4_1},{points_4_1,points_4_1,points_4_1},...
     'Uniformoutput',false);
 for i=1:length(interval_4_1)
-    plot(points_4_1,inter_4_1{i});
     hold on;
+    plot(points_4_1,inter_4_1{i});
 end
 
 %% PROBLEM 4-2 HERMITE INTERPLATION
@@ -162,8 +161,8 @@ y_4_2=f_4_2_vec(points_4_1);
 inter_4_2=cellfun(@spline,{points_4_1,points_4_1,points_4_1},...
     {y_4_2,y_4_2,y_4_2},'Uniformoutput',false);
 for i=1:length(interval_4_1)
-    plot(points_4_1,ppval(inter_4_2{i},points_4_1));
     hold on;
+    plot(points_4_1,ppval(inter_4_2{i},points_4_1));
 end
 
 %% PROBLEM 4-6 PROXIMATTION AND RUNGE PHOMENON
@@ -174,7 +173,7 @@ close
 plot(linspace(1994,2003,100),y_4_6);
 hold on
 scatter(linspace(1994,2003,10),[67.052,68.008,69.803,72.024,73.400,...
-    72.063,74.669,74.487,74.065,76.777])
+    72.063,74.669,74.487,74.065,76.777]);
 
 %% PROBLEM 5-3 NUMERICAL INTEGRATION
 points_n_5_3={50,100,200,500,1000};
@@ -210,18 +209,18 @@ adv_j=cellfun(@nnl_adveuler,{0,0,0},step_6_1,{[1,2],[1,2],[1,2]},...
     {f_6_1,f_6_1,f_6_1},'Uniformoutput',false);
 
 for i=1:length(rk_j)
-    plot(linspace(1,2,length(rk_j{i})),rk_j{i});
     hold on
+    plot(linspace(1,2,length(rk_j{i})),rk_j{i});
 end
 
 for i=1:length(clse_j)
-    plot(linspace(1,2,length(clse_j{i})),clse_j{i});
     hold on
+    plot(linspace(1,2,length(clse_j{i})),clse_j{i});
 end
 
 for i=1:length(rk_j)
-    plot(linspace(1,2,length(adv_j{i})),adv_j{i});
     hold on
+    plot(linspace(1,2,length(adv_j{i})),adv_j{i});
 end
 
 syms x u(x);
@@ -230,3 +229,38 @@ f_sym_6_1_sol=dsolve(diff(u)==2/x*u+x^2*exp(x),u(1)==0,x);
 fplot(f_sym_6_1_sol,[1,2]);
 clear x u;
 legend;
+
+%% PROBLEM 12 
+f_12_1=@(x)x^3-x^2-x-1;
+f_12_d_1=@(x)2*x^2-2*x;
+ans_12_1=nnl_newton_nle(f_12_1,f_12_d_1,2,1e-5);
+
+f_12_2=@(x)x-exp(-x);
+f_12_d_2=@(x)1+exp(-x);
+disp("ANSVWER 12:========================================================");
+ans_12_2=nnl_newton_nle(f_12_2,f_12_d_2,0.6,1e-5);
+disp(ans_12_2);
+
+%% PROBLEM 17
+f_17=@(x)cos(x)*sinh(x)-1;
+f_17_d=@(x)cos(x)*cosh(x)-sin(x)*sinh(x);
+var0_17=linspace(1,3,10);
+var0_17=[var0_17,linspace(7,18,9)];
+ans_17=[];
+for i=var0_17
+    ans_17=[ans_17,nnl_newton_nle(f_17,f_17_d,i,1e-2)];
+end
+ans_17_set=uniquetol(ans_17,1e-2);
+ans_17_5=ans_17_set(find(ans_17_set>0));
+disp("ANSVWER 17:========================================================");
+disp(ans_17_5(1:5));
+
+%% PROBLEM 15
+f_15_int=@(x)exp(-x^2/2);
+vark_15=linspace(1,30,30)*0.1;
+y_15=[];
+for vark=vark_15
+    y_15=[y_15,1/2+1/sqrt(2*pi)*nnl_mpsimpsonint([0,vark],100,f_15_int)];
+end
+disp("ANSVWER 15:========================================================");
+disp(y_15);
